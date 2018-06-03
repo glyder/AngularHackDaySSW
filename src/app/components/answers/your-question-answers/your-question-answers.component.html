@@ -1,0 +1,18 @@
+<h3>Your Answers</h3>
+
+Parent: {{ myCount }}
+
+<div class="row">
+    <div class="col-sm">
+        <hack-answer-card (answerSelected)="countChange($event)" [AnswerID]='answerID1' [AnswerText]='answerText1'></hack-answer-card>
+    </div>
+    <div class="col-sm">
+        <hack-answer-card (answerSelected)="countChange($event)" [AnswerID]='answerID2' [AnswerText]='answerText2'></hack-answer-card>
+    </div>
+    <div class="col-sm">
+        <hack-answer-card (answerSelected)="countChange($event)" [AnswerID]='answerID3' [AnswerText]='answerText3'></hack-answer-card>
+    </div>
+    <div class="col-sm">
+        <hack-answer-card (answerSelected)="countChange($event)" [AnswerID]='answerID4' [AnswerText]='answerText4'></hack-answer-card>
+    </div>
+</div>

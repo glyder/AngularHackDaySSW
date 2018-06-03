@@ -1,0 +1,74 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+    <h1>
+        {{ title }}!
+    </h1>
+</div>
+
+
+<div class="row">
+    <div class="col text-right">
+        <div ngbDropdown class="d-inline-block">
+            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Ready to Trivia?</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <button class="dropdown-item">Let's go!</button>
+                <button class="dropdown-item" (click)='resetPage()'>Reset</button>
+                <button class="dropdown-item" (click)='clickPage1()'>Page1</button>
+                <button class="dropdown-item" (click)='clickPage2()'>Page2</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button (click)='nextQuestion()'> Test next button</button>
+
+<div class="container" *ngIf='page1'>
+    <div class="row" style='height: 5rem;'>
+        <div class="col-sm">
+            <hack-question-current-summary [currentQuestion]='currentQuestionsCount' [totalQuestions]='totalQuestionsCount' [show]='showQuestionCurrentSummary'>
+            </hack-question-current-summary>
+        </div>
+    </div>
+
+    <div class="row" style='height: 10rem;'>
+        <div class="col-sm">
+            <hack-your-question [questionText]='nextQuestionText' [show]='showQuestion'>
+            </hack-your-question>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm border border-success">
+            <hack-your-question-answers [answersData]='nextAnswers' [answer]='nextAnswer' [show]='showQuestionAnswers'></hack-your-question-answers>
+        </div>
+    </div>
+
+
+    <!--
+  <div class="row">
+      <div class="col-sm">
+        One of three columns
+      </div>
+      <div class="col-sm">
+        One of three columns
+      </div>
+      <div class="col-sm">
+        One of three columns
+      </div>
+    </div> -->
+
+
+</div>
+
+<div class="container" *ngIf='page2'>
+
+    <div class="row" style='height: 10rem;'>
+        <div class="col-sm">
+            <hack-your-congratulations-score (update)="congratsChanged($event)" [score]='yourCurrentScore' [total]='totalQuestionsCount' [show]='showCongratulations'></hack-your-congratulations-score>
+        </div>
+    </div>
+
+</div>
+
+
+<router-outlet></router-outlet>
